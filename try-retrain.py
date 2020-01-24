@@ -28,10 +28,10 @@ import argparse
 # Paths to files producted as part of retraining Inception.  Change these if you saved your files in
 #   a different location.
 #   Retrained graph
-MODEL_PATH = "/tmp/output_graph.pb"
+MODEL_PATH = "./tmp/output_graph.pb"
 #   Labels the newly retrained graph.  These would be the new classes being classified 
 #       such as "Rose, Dandillion, ..."
-LABEL_PATH = "/tmp/output_labels.txt"
+LABEL_PATH = "./tmp/output_labels.txt"
 
 
 # Load the retrained graph as the default graph 
