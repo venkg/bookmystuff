@@ -6,7 +6,7 @@ from image_predict import predict_image_class
 from image_string_converter import get_image_from_string
 from flask import jsonify
 from datetime import datetime
-
+import json
 
 LABEL_PATH = "./tmp/output_labels.txt"
 
@@ -25,7 +25,15 @@ def searchProduct():
         predicted_class = predict_image_class("./test-images/"+image_name, LABEL_PATH)
     else:
         predicted_class = 'File must be a jpeg image.'
-    return jsonify(predicted_class)
+    
+    # read product info
+    product_catalog_file = open('./product_info.json')
+    product_catalog_array = json.load(product_catalog_file)
+    predicted_product = [x for x in product_catalog_array if x['productClass'] == predicted_class]
+    predicted_product_json = json.dumps(predicted_product)
+    
+    return predicted_product_json
+    #return jsonify(predicted_class)
 
 @app.route('/product', methods = ['POST'])
 def search_product():
@@ -40,7 +48,13 @@ def search_product():
         predicted_class = predict_image_class(image_name, LABEL_PATH)
         if os.path.exists(image_name):
             os.remove(image_name)
-        return jsonify(predicted_class)
+        
+        product_catalog_file = open('./product_info.json')
+        product_catalog_array = json.load(product_catalog_file)
+        predicted_product = [x for x in product_catalog_array if x['productClass'] == predicted_class]
+        predicted_product_json = json.dumps(predicted_product)
+        
+        return predicted_product_json
 
 app.run(host='0.0.0.0', port= 81)
 
