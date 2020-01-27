@@ -56,14 +56,12 @@ def search_product():
         
         return predicted_product_json
 
-app.run(host='0.0.0.0', port= 81)
+#app.run(host='0.0.0.0', port= 81)
 
 """
 Comment above line and uncomment below to dockerize
 """
 
-"""
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 5000))
     app.run(debug=True,host='0.0.0.0',port=port)
-"""
