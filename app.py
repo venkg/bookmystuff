@@ -7,12 +7,27 @@ from image_string_converter import get_image_from_string
 from flask import jsonify
 from datetime import datetime
 import json
+try:
+    from flask_cors import CORS  # The typical way to import flask-cors
+except ImportError:
+    # Path hack allows examples to be run without installation.
+    import os
+    parentdir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+    os.sys.path.insert(0, parentdir)
+
+    from flask_cors import CORS
 
 LABEL_PATH = "./tmp/output_labels.txt"
 
 app = Flask(__name__)
+# One of the simplest configurations. Exposes all resources matching /api/* to
+# CORS and allows the Content-Type header, which is necessary to POST JSON
+# cross origin.
+CORS(app, resources=r'/product/*')
+
 
 @app.route('/hello')
+
 def helloIndex():
     return 'Hello from Book My Stuff!'
 
