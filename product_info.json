@@ -19,4 +19,10 @@
         "productClass": "pepejeansmodelpb210492",
         "productUrl": "https://www.amazon.in/Pepe-Jeans-Casaul-Jean-_8907557577011_Blue_36_/dp/B07FVNCV19"
     }
+    ,
+    {
+        "productClass": "unknown",
+        "productUrl": "unknown",
+        "message": "The product could not be found."
+    }
 ]
