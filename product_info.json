@@ -19,4 +19,10 @@
         "productClass": "pepejeansmodelpb210492",
         "productUrl": "https://www.amazon.in/Pepe-Jeans-Striped-Regular-PB540473_Red_16/dp/B07GC2B7T5"
     }
+    ,
+    {
+        "productClass": "unknown",
+        "productUrl": "unknown",
+        "message": "The product could not be found."
+    }
 ]

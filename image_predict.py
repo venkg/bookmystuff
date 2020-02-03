@@ -65,5 +65,9 @@ def predict_image_class(imagePath, labelPath):
 
         print("")
 
-        answer = filter_delimiters(labels[top_k[0]])
+        predicted_class_probability = predictions[top_k[0]]
+        if(predicted_class_probability < 0.7):
+            answer = "unknown"
+        else:
+            answer = filter_delimiters(labels[top_k[0]])
         return answer
