@@ -1,0 +1,19 @@
+apiVersion: autoscaling/v2beta2
+kind: HorizontalPodAutoscaler
+metadata:
+  name: memory-autoscale 
+  namespace: bullseye
+spec:
+  scaleTargetRef:
+    apiVersion: apps/v1 
+    name: bookmystuff-docker-app 
+    kind: DeploymentConfig 
+  minReplicas: 1 
+  maxReplicas: 3
+  metrics:
+  - type: Resource
+    resource:
+      name: memory
+      target:
+        name: memory-absolute
+        targetAverageValue: 500Mi 
