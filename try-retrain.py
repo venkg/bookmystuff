@@ -13,8 +13,7 @@
     
             python try-retrain.py <path to your jpeg image>
 
-    This program is part of the Pluralsight course, "TensorFlow: Getting Started".  Watch that
-    course for full instructions on using this program
+
 
     This program is a modified version of https://github.com/eldor4do/Tensorflow-Examples/retraining-example.py
     
