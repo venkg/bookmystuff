@@ -1,0 +1,16 @@
+apiVersion: autoscaling/v2beta1
+kind: HorizontalPodAutoscaler
+metadata:
+  name: hpa-resource-metrics-memory 
+spec:
+  scaleTargetRef:
+    apiVersion: apps.openshift.io/v1 
+    kind: ReplicationController 
+    name: bookmystuff-service-app
+  minReplicas: 3 
+  maxReplicas: 6 
+  metrics:
+  - type: Resource
+    resource:
+      name: memory
+      targetAverageUtilization: 50 
